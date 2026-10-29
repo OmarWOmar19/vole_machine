@@ -1,0 +1,8 @@
+; Purpose: Load 10 (0A) into R0 and 5 into R1, add them,
+; and display the result (15 = 0F) on the screen.
+
+200A ; Load immediate value 0A (10) into register 0
+2105 ; Load immediate value 05 into register 1
+5301 ; Add registers 0 and 1, put result in register 3
+33FF ; Store register 3 to address FF (screen output)
+C000 ; Halt execution
