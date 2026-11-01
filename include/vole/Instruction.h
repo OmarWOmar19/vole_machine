@@ -9,7 +9,7 @@ class Instruction {
         uint8_t opcode, r, x, y;
 
     public:
-        Instruction(uint8_t _opcode = 0, uint8_t _r = 0, uint8_t _x = 0, uint8_t _y = 0);
+        Instruction(uint8_t _opcode = 0x00, uint8_t _r = 0x00, uint8_t _x = 0x00, uint8_t _y = 0x00);
 
         uint8_t get_opcode();
         uint8_t get_r();

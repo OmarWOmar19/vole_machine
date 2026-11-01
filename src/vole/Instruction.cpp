@@ -1,7 +1,6 @@
 #include "../../include/vole/Instruction.h"
 
-Instruction::Instruction(uint8_t _opcode, uint8_t _r, uint8_t _x, uint8_t _y) :
-opcode(_opcode), r(_r), x(_x), y(_r) {
+Instruction::Instruction(uint8_t _opcode, uint8_t _r, uint8_t _x, uint8_t _y) : opcode(_opcode), r(_r), x(_x), y(_y) {
 
 }
 
