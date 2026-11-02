@@ -5,21 +5,17 @@
 #include <cstdint>
 
 using namespace std;
-class Screen
-{
-    string output;
-public:
 
-    void write(uint8_t val)
-    {
-        output += (char)val;
-    }
-void reset(){
-    output.clear();
-}
-void display(){
-   cout << output<< endl;
+class Screen {
 
+    private:
+        string output = "";
 
-}
+    public:
+        void write(uint8_t val);
+        void display();
+        void reset();
+
+};
+
 #endif
