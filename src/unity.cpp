@@ -11,3 +11,5 @@
 #include "vole/Registers.cpp"
 #include "vole/Screen.cpp"
 #include "vole/Simulator.cpp"
+
+#include "Utilities.cpp"

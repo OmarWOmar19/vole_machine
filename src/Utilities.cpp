@@ -1,13 +1,10 @@
-#include <string>
-#include <cstdint>
-#include <vector>
 #include <fstream>
 #include <iostream>
 #include <limits>
-#include <cstdint>
 #include <stdexcept>
+#include <cctype>
 
-using namespace std;
+#include "../include/Utilities.h"
 
 void show_error_message(const string& message) {
     cout << "\a" << "\033[31m" << "Error: " << message << "\033[0m" << "\n";
@@ -15,6 +12,18 @@ void show_error_message(const string& message) {
 
 bool is_whitespace_only(const string& str) {
     return str.find_first_not_of(" \t\n\v\f\r") == string::npos;
+}
+
+bool is_valid_hex(const string& line) {
+	
+	for (const char& c : line) {
+		if (!isxdigit(c)) {
+			return false;
+		}
+	}
+	
+	return true;
+	
 }
 
 string left_trim(string str) {
@@ -64,9 +73,11 @@ vector <uint16_t> convert_file_to_vector(const string& file_path) {
 
     string line = "";
     uint16_t instruction = 0x00;
-	short line_counter = 1;
+	short line_counter = 0;
 
     while (getline(file, line)) {
+
+        line_counter++;
 
         if (is_whitespace_only(line)) {
             continue;
@@ -88,10 +99,12 @@ vector <uint16_t> convert_file_to_vector(const string& file_path) {
 			throw runtime_error("syntax error at line " + to_string(line_counter) + " \'" + line + "\'");
 		} 
 
+        if (!is_valid_hex(line)) {
+            throw runtime_error("invalid hex code at line "+ to_string(line_counter) + " \'" + line + "\'");
+        }
+
 		instruction = static_cast<uint16_t>(stoi(line, nullptr, 16));
         v_file.push_back(instruction);
-
-        line_counter++;
 
 	}
 
