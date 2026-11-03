@@ -19,6 +19,8 @@ class Memory {
         
         void write(uint8_t val, uint8_t address); // Write a cell to memory
         uint8_t read(uint8_t address); // Read a cell from memory
+
+        void show();
         
         void reset();
 
