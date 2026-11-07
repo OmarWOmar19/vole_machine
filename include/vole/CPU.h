@@ -21,12 +21,12 @@ class CPU {
         Instruction decoded_instruction;
 
         bool halted = false;
+        bool validate_instruction();
 
     public:
-        CPU(Memory& memory, Registers& registers);
+        CPU(Memory& _memory, Registers& _registers);
 
-        bool validate_instruction();
-        void run_instruction();
+        bool run_instruction();
         bool is_halted();
         void set_pc(uint8_t address);
 
