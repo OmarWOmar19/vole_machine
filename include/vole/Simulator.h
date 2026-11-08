@@ -10,11 +10,17 @@ class Simulator {
         Screen screen;
         Machine machine;
 
-    public:
+        void perform_run_line_menu_choice(short choice);
+        void perform_main_menu_choice(short choice);
 
-        Simulator();
-        
+        void show_load_program_menu();
+        void show_run_line_by_line_menu();
+        void show_run_program_menu();
         void show_main_menu();
+
+    public:
+        Simulator();
+
         void run();
         void reset();
 
