@@ -22,12 +22,18 @@ class Machine {
 
     public:
         Machine(Screen& screen);
+        
+        bool is_program_loaded = false;
 
-        bool load_program(uint8_t start, const string& program_file);
-        
-        void run_program();
-        void step();
-        
+        bool load_program(uint8_t start, const string& program_path);
+
+        bool run_program();
+        bool step();
+
+        bool is_halted();
+
+        void show_status();
+
         void reset();
 
 };
