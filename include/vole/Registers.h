@@ -15,8 +15,10 @@ class Registers {
         Registers();
 
         uint8_t read(uint8_t address);
-        
         void set(uint8_t val, uint8_t address);
+
+        void show();
+        
         void reset();
 
 };
