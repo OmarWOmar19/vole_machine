@@ -1,0 +1,8 @@
+; Vole Machine Program: Memory Operations
+; Purpose: Store a value in memory, retrieve it, and display it.
+
+200C ; Load immediate value 0C into register 0
+3020 ; Store register 0 into memory address 20
+1220 ; Load the contents of memory address 20 into register 2
+32FF ; Store register 2 to address FF (screen output)
+C000 ; Halt execution

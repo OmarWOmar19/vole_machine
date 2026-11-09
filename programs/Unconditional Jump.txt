@@ -1,0 +1,10 @@
+; Vole Machine Program: Unconditional Jump
+; Purpose: Jump over an instruction and continue execution.
+
+2000 ; Load immediate value 00 into register 0
+B008 ; Jump to address 08 because register 0 always equals itself
+2201 ; Load value 01 into register 2 (this instruction is skipped)
+C000 ; Halt execution (this instruction is skipped)
+220F ; Load immediate value 0F into register 2
+32FF ; Store register 2 to address FF (screen output)
+C000 ; Halt execution

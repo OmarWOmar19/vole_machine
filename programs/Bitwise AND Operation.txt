@@ -1,0 +1,8 @@
+; Vole Machine Program: Bitwise AND
+; Purpose: Perform AND operation on two registers.
+
+20AC ; Load immediate value AC into register 0
+210F ; Load immediate value 0F into register 1
+8201 ; AND registers 0 and 1, put result in register 2
+32FF ; Store register 2 to address FF (screen output)
+C000 ; Halt execution
