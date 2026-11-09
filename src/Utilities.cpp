@@ -158,6 +158,7 @@ int read_choice(const string& prompt, const string& error_message, int from, int
 
         if (!(choice >= from && choice <= to)) {
             show_error_message(error_message);
+            cout << endl;
         }
 
     } while (!(choice >= from && choice <= to));
@@ -181,26 +182,44 @@ uint8_t read_address() {
 
     int start_address;
 
-    cout << "Start Address: ";
-    cin >> hex >> start_address;
-
-    while (cin.fail()) {
-
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << endl;
-
-        show_error_message("invalid input");
-        cout << "Please enter a hex value!\n";
-
-        cout << endl;
+    while (true) {
 
         cout << "Start Address: ";
         cin >> hex >> start_address;
 
-    }
+        // Check input validity
+        if (cin.fail()) {
 
-    return static_cast<uint8_t>(start_address);
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            show_error_message("invalid input");
+            cout << "Please enter a valid hex value!\n\n";
+
+            continue;
+        }
+
+        // Check address range
+        if (start_address < 0 || start_address > 0xFC) {
+
+            show_error_message("invalid start address");
+            cout << "Address must be between 0x00 and 0xFC!\n\n";
+
+            continue;
+        }
+
+        // Check whether the address is even
+        if (start_address & 1 != 0) {
+
+            show_error_message("invalid start address");
+            cout << "Start address must be even!\n\n";
+
+            continue;
+
+        }
+
+        return static_cast<uint8_t>(start_address);
+
+    }
 
 }
