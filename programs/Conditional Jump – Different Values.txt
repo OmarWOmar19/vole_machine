@@ -1,0 +1,11 @@
+; Vole Machine Program: Conditional Comparison
+; Purpose: Check whether two values are different.
+
+2007 ; Load immediate value 07 into register 0
+2108 ; Load immediate value 08 into register 1
+B10A ; Jump to address 0A if register 1 equals register 0
+2201 ; Load value 01 into register 2 if values are different
+B00C ; Jump to address 0C unconditionally
+2200 ; Load value 00 into register 2 if values are equal
+32FF ; Store register 2 to address FF (screen output)
+C000 ; Halt execution

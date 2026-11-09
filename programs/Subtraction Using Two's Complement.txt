@@ -1,0 +1,8 @@
+; Vole Machine Program: Subtraction
+; Purpose: Subtract 3 from 10 using two's complement.
+
+200A ; Load immediate value 0A (10) into register 0
+21FD ; Load immediate value FD (-3) into register 1
+5201 ; Add registers 0 and 1, put result in register 2
+32FF ; Store register 2 to address FF (screen output)
+C000 ; Halt execution

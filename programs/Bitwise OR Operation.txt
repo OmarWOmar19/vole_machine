@@ -1,0 +1,8 @@
+; Vole Machine Program: Bitwise OR
+; Purpose: Perform OR operation on two registers.
+
+20A0 ; Load immediate value A0 into register 0
+2105 ; Load immediate value 05 into register 1
+7201 ; OR registers 0 and 1, put result in register 2
+32FF ; Store register 2 to address FF (screen output)
+C000 ; Halt execution

@@ -1,0 +1,7 @@
+; Vole Machine Program: Register Transfer
+; Purpose: Move a value from register 0 to register 1.
+
+20A5 ; Load immediate value A5 into register 0
+4001 ; Move the contents of register 0 into register 1
+31FF ; Store register 1 to address FF (screen output)
+C000 ; Halt execution

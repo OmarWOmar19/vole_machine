@@ -1,0 +1,12 @@
+; Vole Machine Program: Multiplication
+; Purpose: Multiply 3 by 4 using repeated addition.
+
+2003 ; Load immediate value 03 into register 0
+2103 ; Load immediate value 03 into register 1
+2203 ; Load immediate value 03 into register 2
+2303 ; Load immediate value 03 into register 3
+5401 ; Add registers 0 and 1, put result in register 4
+5523 ; Add registers 2 and 3, put result in register 5
+5645 ; Add registers 4 and 5, put result in register 6
+36FF ; Store register 6 to address FF (screen output)
+C000 ; Halt execution

@@ -1,0 +1,7 @@
+; Vole Machine Program: Rotate Right
+; Purpose: Rotate the bits in register 0 three times to the right.
+
+2081 ; Load immediate value 81 into register 0
+A003 ; Rotate register 0 three positions to the right
+30FF ; Store register 0 to address FF (screen output)
+C000 ; Halt execution

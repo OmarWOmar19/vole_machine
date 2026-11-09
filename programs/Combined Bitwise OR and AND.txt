@@ -1,0 +1,9 @@
+; Vole Machine Program: Combined OR and AND Operations
+; Purpose: Perform OR followed by AND and display the final result.
+
+203C ; Load immediate value 3C into register 0
+210F ; Load immediate value 0F into register 1
+7221 ; OR registers 2 and 1, put result in register 2
+8321 ; AND registers 2 and 1, put result in register 3
+33FF ; Store register 3 to address FF (screen output)
+C000 ; Halt execution
