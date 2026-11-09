@@ -30,6 +30,8 @@ class CPU {
         bool is_halted();
         void set_pc(uint8_t address);
 
+        void show();
+
         void reset();
 
 

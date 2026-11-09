@@ -68,15 +68,17 @@ bool Machine::step() {
 
 void Machine::show_status() {
 
-    cout << "Memory: \n\n";
+    cout << "\n========== MACHINE STATUS ==========\n";
 
+    cout << "\n\n";
+
+    cpu.show();
+    registers.show();
     memory.show();
 
-    cout << "________________________________________\n\n";
+    cout << "\n\n";
 
-    cout << "Registers: \n\n";
-
-    registers.show();
+    cout << "\n====================================\n";
 
 }
 

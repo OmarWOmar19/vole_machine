@@ -36,26 +36,33 @@ void Memory::reset() {
 
 void Memory::show() {
 
-    cout << setfill(' ');
-    cout << dec; // Reset from hex to decimal (normal)
+    cout << "\n========== MEMORY ==========\n\n";
 
-    cout << setw(4) << left << "Cell" << " | " << setw(5) << "Value" << endl;
+    // Column headers: 0 to F
+    cout << "     ";
 
-    cout << endl;
-
-    for (int start = 0; start < 256; start++) {
-
-        cout << setfill(' ');
-        cout << dec; // Reset from hex to decimal (normal)
-
-        cout << showbase << setw(4) << hex << setfill('0') << static_cast<int>(start);
-        cout << "   ";
-        cout << showbase << setw(4) << hex << setfill('0') << static_cast<int>(cells[start]);
-        cout << endl;
-
+    for (int col = 0; col < 16; col++) {
+        cout << setw(3) << hex << uppercase << col;
     }
 
-    cout << setfill(' ');
-    cout << dec; // Reset from hex to decimal (normal)
+    cout << '\n';
+
+    // Memory contents
+    for (int row = 0; row < 16; row++) {
+
+        cout << setw(2) << setfill('0') << hex << uppercase << row * 16 << " | ";
+
+        for (int col = 0; col < 16; col++) {
+
+            int address = row * 16 + col;
+
+            cout << setw(2) << setfill('0') << static_cast<int>(cells[address]) << ' ';
+        }
+
+        cout << '\n';
+    }
+
+    // Reset stream formatting
+    cout << dec << nouppercase << setfill(' ');
 
 }

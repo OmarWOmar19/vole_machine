@@ -1,5 +1,6 @@
 #include <string>
 #include <sstream>
+#include <iostream>
 
 #include "../../include/vole/Screen.h"
 
@@ -15,8 +16,17 @@ void Screen::write(uint8_t val) {
 }
 
 void Screen::display() {
-    cout << "++++++++++++ SCREEN OUTPUT ++++++++++++" << endl;
-    cout << endl << output << endl;
+
+    cout << "\n========== SCREEN OUTPUT ==========\n\n";
+
+    if (output.empty()) {
+        cout << "(empty)\n";
+    } else {
+        cout << output << '\n';
+    }
+
+    cout << "\n===================================\n";
+
 }
 
 void Screen::reset() {

@@ -31,26 +31,18 @@ void Registers::reset() {
 
 void Registers::show() {
 
-    cout << setfill(' ');
-    cout << dec; // Reset from hex to decimal (normal)
+    cout << "\n========== REGISTERS ==========\n\n";
 
-    cout << setw(4) << left << "R" << " | " << setw(5) << "Value" << endl;
+    for (int row = 0; row < 4; row++) {
 
-    cout << endl;
+        for (int col = 0; col < 4; col++) {
+            int index = row + col * 4;
+            cout << "R" << hex << uppercase << index << " = " << setw(2) << setfill('0') << static_cast<int>(vals[index]) << "     ";
+        }
 
-    for (int start = 0; start < 16; start++) {
-
-        cout << setfill(' ');
-        cout << dec; // Reset from hex to decimal (normal)
-
-        cout << setw(4) << start;
-        cout << "   ";
-        cout << showbase << setw(4) << hex << setfill('0') << static_cast<int>(vals[start]);
-        cout << endl;
-    
+        cout << '\n';
     }
 
-    cout << setfill(' ');
-    cout << dec; // Reset from hex to decimal (normal)
-
+    // Reset stream formatting
+    cout << dec << nouppercase << setfill(' ');
 }

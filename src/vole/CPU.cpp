@@ -1,5 +1,7 @@
 #include <stdexcept>
 #include <sstream>
+#include <iostream>
+#include <iomanip>
 
 #include "../../include/vole/CPU.h"
 #include "../../include/vole/floating_point.h"
@@ -160,6 +162,27 @@ bool CPU::run_instruction() {
     }
 
     return true;
+
+}
+
+void CPU::show() {
+
+    cout << "\n========== CPU ==========\n\n";
+
+    cout << hex << uppercase << setfill('0');
+
+    cout << "PC:          0x" << setw(2) << static_cast<int>(pc.get()) << '\n';
+    cout << "IR:          0x" << setw(4) << static_cast<int>(ir.get()) << '\n';
+    cout << "State:       " << (halted ? "HALTED" : "ACTIVE") << '\n';
+
+    cout << "\nDecoded Instruction:\n\n";
+
+    cout << "Opcode:      " << static_cast<int>(decoded_instruction.get_opcode()) << '\n';
+    cout << "R:           " << static_cast<int>(decoded_instruction.get_r()) << '\n';
+    cout << "X:           " << static_cast<int>(decoded_instruction.get_x()) << '\n';
+    cout << "Y:           " << static_cast<int>(decoded_instruction.get_y()) << '\n';
+
+    cout << dec << nouppercase << setfill(' ');
 
 }
 
