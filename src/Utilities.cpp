@@ -10,6 +10,10 @@ void show_error_message(const string& message) {
     cout << "\a" << "\033[31m" << "Error: " << message << "\033[0m" << "\n";
 }
 
+void show_success_message(const string& message) {
+    cout << "\a" << "\033[32m" << message << "\033[0m" << "\n";
+}
+
 bool is_whitespace_only(const string& str) {
     return str.find_first_not_of(" \t\n\v\f\r") == string::npos;
 }

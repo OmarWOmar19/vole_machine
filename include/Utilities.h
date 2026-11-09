@@ -9,6 +9,7 @@
 using namespace std;
 
 void show_error_message(const string& message);
+void show_success_message(const string& message);
 
 bool is_whitespace_only(const string& str);
 
