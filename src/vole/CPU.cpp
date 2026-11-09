@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <sstream>
 
 #include "../../include/vole/CPU.h"
 #include "../../include/vole/floating_point.h"
@@ -36,7 +37,11 @@ bool CPU::validate_instruction() {
             return r == 0 && x == 0 && y == 0;
 
         default:
-            return false;
+
+            stringstream ss;
+            ss << "0x" << hex << uppercase << static_cast<int>(ir.get());
+
+            throw runtime_error("compilation error at instruction \'" + ss.str() + "\' -> No such an instruction");
     }
 
 }
@@ -150,7 +155,7 @@ bool CPU::run_instruction() {
             break;
 
         default:
-            return false;
+            ;
 
     }
 

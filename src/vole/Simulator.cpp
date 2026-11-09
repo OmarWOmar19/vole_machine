@@ -47,7 +47,7 @@ void Simulator::show_run_line_by_line_menu() {
 
         }
 
-        cout << "\n========== STEP-BY-STEP EXECUTION ==========\n";
+        cout << "========== STEP-BY-STEP EXECUTION ==========\n";
 
         cout << "1. Execute Next Instruction" << endl;
         cout << "2. Show Machine State" << endl;
@@ -61,7 +61,10 @@ void Simulator::show_run_line_by_line_menu() {
 
             case 1:
                 system("cls");
-                if (machine.step()) show_success_message("Instruction has been executed!");
+
+                if (machine.step()) show_success_message("Instruction has been successfully executed!");
+                else show_error_message("instruction execution has been failed");
+
                 system("pause");
                 break;
 
@@ -110,10 +113,8 @@ void Simulator::show_run_program_menu() {
             
             system("cls");
 
-            bool run = machine.run_program();
-
-            if (run) { show_success_message("Program has been executed successfully!"); }
-            else { show_error_message("program running has been failed!"); } 
+            if (machine.run_program()) show_success_message("Program has been executed successfully!");
+            else show_error_message("program running has been failed!"); 
 
             system("pause");
 

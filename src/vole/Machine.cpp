@@ -1,5 +1,6 @@
 #include <filesystem>
 #include <iostream>
+#include <exception>
 
 #include "../../include/vole/Machine.h"
 #include "../../include/Utilities.h"
@@ -35,10 +36,10 @@ bool Machine::run_program() {
 
     while (!cpu.is_halted()) {
 
-        bool run = cpu.run_instruction();
-
-        if (!run) {
-            show_error_message("compilation error!");
+        try {
+            if (!cpu.run_instruction()) return false;
+        } catch (const exception& e) {
+            show_error_message(e.what());
             return false;
         }
 
@@ -54,10 +55,10 @@ bool Machine::is_halted() {
 
 bool Machine::step() {
 
-    bool step = cpu.run_instruction();
-
-    if (!step) {
-        show_error_message("compilation error");
+    try {
+        if (!cpu.run_instruction()) return false;
+    } catch (const exception& e) {
+        show_error_message(e.what());
         return false;
     }
 
