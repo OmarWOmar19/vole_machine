@@ -6,6 +6,8 @@
 
 #include "../include/Utilities.h"
 
+using namespace std;
+
 void show_error_message(const string& message) {
     cout << "\a" << "\033[31m" << "Error: " << message << "\033[0m" << "\n";
 }
@@ -130,7 +132,10 @@ int read_number(const string& prompt) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        show_error_message("Error: Invalid input!!!\nPlease Enter a numeric value!!!");
+        cout << endl;
+
+        show_error_message("invalid input");
+        cout << "Please enter a numeric value!\n";
 
         cout << endl;
 
@@ -178,6 +183,23 @@ uint8_t read_address() {
 
     cout << "Start Address: ";
     cin >> hex >> start_address;
+
+    while (cin.fail()) {
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        cout << endl;
+
+        show_error_message("invalid input");
+        cout << "Please enter a hex value!\n";
+
+        cout << endl;
+
+        cout << "Start Address: ";
+        cin >> hex >> start_address;
+
+    }
 
     return static_cast<uint8_t>(start_address);
 
