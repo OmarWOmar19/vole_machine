@@ -22,11 +22,11 @@ bool Machine::load_program(uint8_t start, const string& program_path) {
             is_program_loaded = true;
             return true;
         } else {
-            throw invalid_argument("machine could not load program!");
+            throw invalid_argument("machine could not load program");
         }
 
     } else {
-        throw invalid_argument("file does not exist!");
+        throw invalid_argument("file does not exist");
     }
 
 }

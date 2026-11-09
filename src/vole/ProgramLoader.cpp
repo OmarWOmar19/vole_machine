@@ -4,8 +4,15 @@
 #include "../../include/vole/ProgramLoader.h"
 #include "../../include/Utilities.h"
 
-bool ProgramLoader::validate_program(const vector <uint16_t>& v_program_lines) {
-    
+bool ProgramLoader::validate_program(const vector <uint16_t>& v_program_lines, uint8_t start_address) {
+
+    const size_t required_cells = v_program_lines.size() * 2;
+    const size_t available_cells = 0xFF - start_address;
+
+    if (required_cells > available_cells) {
+        throw runtime_error("program exceeds memory capacity");
+    }   
+
     if (v_program_lines.empty()) {
         throw runtime_error("program file is empty!");
     }
@@ -14,7 +21,7 @@ bool ProgramLoader::validate_program(const vector <uint16_t>& v_program_lines) {
         throw overflow_error("program file size takes over 256 cells!");
     }
 
-    return true;
+    return true; 
 
 }
 
@@ -34,7 +41,7 @@ bool ProgramLoader::load_program(const string& program_path, uint8_t start_addre
 
     try {
 
-        if (validate_program(v_program_lines)) {
+        if (validate_program(v_program_lines, start_address)) {
             // Load Program Instructions To Memory Cells
             for (int i = 0; i < v_program_lines.size(); i++) {
 
