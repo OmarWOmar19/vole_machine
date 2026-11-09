@@ -1,10 +1,17 @@
 #include <string>
+#include <sstream>
+
 #include "../../include/vole/Screen.h"
 
 using namespace std;
 
 void Screen::write(uint8_t val) {
-    output += to_string(val);
+
+    stringstream ss; 
+    ss << "0x" << hex << uppercase << static_cast<int>(val) << "\n";
+
+    output += ss.str();
+
 }
 
 void Screen::display() {
