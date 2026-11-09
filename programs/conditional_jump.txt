@@ -1,10 +1,7 @@
-; Vole Machine Program: Conditional Jump & Comparison Test
-; Purpose: Load reference value 5 into R0, load 5 into R1,
-; compare R1 with R0 (R0 holds 5), and jump if equal.
-
-2005 ; Load immediate value 05 into register 0 (reference for comparison)
-2105 ; Load immediate value 05 into register 1
-B106 ; Jump to instruction at address 06 if register 1 equals register 0
-C000 ; Halt execution (if jump didn't happen)
-3100 ; Store register 1 into memory [00] (screen output if jump succeeded and reached here)
-C000 ; Halt execution
+2005
+2105
+B10A
+220A
+C000
+2207
+C000
