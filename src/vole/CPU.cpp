@@ -1,5 +1,9 @@
+#include <stdexcept>
+
 #include "../../include/vole/CPU.h"
 #include "../../include/vole/floating_point.h"
+
+using namespace std;
 
 CPU::CPU(Memory& _memory, Registers& _registers) : memory(_memory), registers(_registers) {}
 
@@ -110,13 +114,36 @@ bool CPU::run_instruction() {
             registers.set(S ^ T, r);
             break;
 
-        case 0xA:
-            // Rotate r content x bits to the right
+        case 0xA: {
+
+            if (x != 0) {
+                throw runtime_error("invalid rotate right (ROT) instruction");
+            }
+
+            uint8_t value = registers.read(r);
+            uint8_t amount = y % 8;
+
+            if (amount != 0) {
+                value = static_cast<uint8_t>((value >> amount) | (value << (8 - amount)));
+            }
+
+            registers.set(value, r);
+
             break;
 
-        case 0xB:
-            // JUMP instruction
+        }
+
+        case 0xB: {
+
+            uint8_t address = (x << 4) | y;
+
+            if (registers.read(r) == registers.read(0)) {
+                pc.set(address);
+            }
+
             break;
+        
+        }
 
         case 0xC:
             halted = true;
