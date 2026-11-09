@@ -1,4 +1,5 @@
 #include "../../include/vole/CPU.h"
+#include "../../include/vole/floating_point.h"
 
 CPU::CPU(Memory& _memory, Registers& _registers) : memory(_memory), registers(_registers) {}
 
@@ -87,9 +88,15 @@ bool CPU::run_instruction() {
             registers.set(S + T, r);
             break;
 
-        case 0x6:
-            // Floating-point number
+        case 0x6: {
+
+            floating_point first(S), second(T);
+            floating_point result = first + second;
+
+            registers.set(result.to_bits(), r);
+
             break;
+        }
 
         case 0x7:
             registers.set(S | T, r);
