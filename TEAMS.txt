@@ -1,0 +1,24 @@
+SECTION: S11-12
+
+ZIP_FILE: CS213_A2_Part2_S11_20250444_20250503_20250315_20250538.zip
+
+ID1: 		    20250444
+NAME: 		    Omar Wael Omar Abd Al-latief
+FILES1: 	    IR.h, IR.cpp, PC.h, PC.cpp, CPU.h, CPU.cpp, 
+                Instruction.h, Instruction.cpp, floating_point, floating_point.cpp and Utlities.cpp.
+
+ID2:            20250503
+NAME2:          Kirolos Nabil Ataa Allah
+FILES2:        	Registers.h, Registers.cpp, Machine.h, Machine.cpp.
+
+ID3:           	20250315
+NAME3:         	Seif Sabry Abd Al-Salam
+FILES3:        	ProgramLoader.h, ProgramLoader.cpp, Memory.h, 
+                Memory.cpp, Decoder.cpp and Decoder.h.
+
+ID4:           	20250538
+NAME4:         	Mohamed Ahmed Mohamed Mostafa
+FILES4:        	Simulator.h, Simulator.cpp, Screen.h and Screen.cpp
+
+GITHUB:        	https://github.com/OmarWOmar19/vole_machine
+VIDEO_DESIGN:  	https://drive.google.com/file/d/1_cps_n04zd3eCUvT-Su9-iiFoP_kMc-h/view?usp=drive_link
